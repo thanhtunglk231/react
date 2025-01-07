@@ -9,12 +9,12 @@ export default function App() {
        <Text style={{fontSize:20,fontWeight:1}}>Đăng nhập </Text>
        </View>
       <View style={styles.view1}> 
-        <Text style={{fontSize:20 , margin:20}}>Nhập số điện thoại
+        <Text style={{fontSize:20 , margin:20}}>Nhập số điện thoại 
 
         </Text>
         <Text style={{margin:20,}}>Dùng số điện thoại để đăng nhập hoặc đăng ký tài khoản tại OneHousing Pro</Text>
         <TextInput style={{borderBottomWidth:1,margin:20,top:20}} placeholder='Nhập số điện thoại của bạn' keyboardType='numeric' ></TextInput>
-       <View style={{top:300 , fontSize:30,borderRadius:5}}>
+       <View style={{top:30 , fontSize:30,borderRadius:5}}>
         <Button  title='Tiếp tục'  keyboardType="numeric"  />
         <Text></Text>
         </View>
