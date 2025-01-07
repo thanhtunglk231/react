@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "app_baitap",
+=======
+  "name": "firstmyapp",
+>>>>>>> 64da9f5301f860ff99b2fb93cf308e936bb3ad49
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -9,13 +13,23 @@
     "web": "expo start --web"
   },
   "dependencies": {
+<<<<<<< HEAD
     "expo": "~52.0.23",
+=======
+    "expo": "~52.0.20",
+>>>>>>> 64da9f5301f860ff99b2fb93cf308e936bb3ad49
     "expo-status-bar": "~2.0.0",
     "react": "18.3.1",
     "react-native": "0.76.5"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "@babel/core": "^7.20.0"
+=======
+    "@babel/core": "^7.20.0",
+    "typescript": "^5.3.3",
+    "@types/react": "~18.3.12"
+>>>>>>> 64da9f5301f860ff99b2fb93cf308e936bb3ad49
   },
   "private": true
 }
