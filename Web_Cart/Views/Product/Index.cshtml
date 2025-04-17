@@ -1,0 +1,38 @@
+﻿@model List<Product>
+@{
+    ViewData["Title"] = "Sản phẩm";
+}
+
+<h2>Sản phẩm</h2>
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4">
+            <div class="card">
+                <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name">
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <p class="card-text">Giá: @product.Price VNĐ</p>
+                    <a href="@Url.Action("AddToCart", "Product", new { id = product.Id })" class="btn btn-primary">Thêm vào giỏ</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+<a href="@Url.Action("Index", "Cart")" class="btn btn-warning mt-3">Giỏ hàng</a>
+
+<h1>Products</h1>
+@foreach (var product in Model)
+{
+    <div>
+        <h2>@product.Name - $@product.Price</h2>
+        <a href="/Checkout?productId=@product.Id">Buy Now</a>
+    </div>
+}

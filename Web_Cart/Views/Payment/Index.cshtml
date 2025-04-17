@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Checkout";
+}
+
+<h1>Checkout</h1>
+<form method="post" action="/Checkout/Confirm">
+    <input type="hidden" name="ProductId" value="@Model.Id" />
+    <label>Name: <input type="text" name="CustomerName" required /></label>
+    <br>
+    <label>Email: <input type="email" name="Email" required /></label>
+    <br>
+    <button type="submit">Confirm Payment</button>
+</form>

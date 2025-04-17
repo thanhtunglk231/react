@@ -1,0 +1,60 @@
+﻿@model List<Web_Cart.Models.CartItem>
+
+<h2>Giỏ hàng</h2>
+
+@if (Model.Any())
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th>Giảm số lượng</th>
+                    <th>Xóa sản phẩm</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model)
+            {
+                        <tr>
+                            <td>@item.Product.Name</td>
+                            <td>@item.Product.Price</td>
+                            <td>@item.Quantity</td>
+                            <td>@(item.Product.Price * item.Quantity)</td>
+                            <td>
+                                <a href="@Url.Action("DecreaseQuantity", "Cart", new { id = item.Product.Id })" class="btn btn-warning">
+                                    Giảm
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("RemoveFromCart", "Cart", new { id = item.Product.Id })" class="btn btn-danger">
+                                    Xóa
+                                </a>
+                            </td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+
+        <a href="@Url.Action("Clear", "Cart")" class="btn btn-warning">Xóa toàn bộ giỏ hàng</a>
+}
+else
+{
+        <p>Giỏ hàng trống!</p>
+}
+@{
+    decimal totalAmount = Model.Sum(item => item.Product.Price * item.Quantity);
+}
+
+<form method="POST" asp-action="CreatePaymentUrl" asp-controller="Payment">
+    <input type="hidden" name="FullName" value="@User.Identity.Name" />
+    <input type="hidden" name="Amount" value="@totalAmount" />
+
+    <input type="hidden" name="OrderInfo" value="Thanh toán đặt hàng qua Momo tại HieuTanStore" />
+
+
+    <br />
+    <button class="btn btn-danger" name="PayUrl" type="submit">Pay with MoMo</button>
+</form>
